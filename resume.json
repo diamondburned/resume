@@ -1,0 +1,131 @@
+{
+  "selectedTemplate": 6,
+  "basics": {
+    "email": "jobs@libdb.so",
+    "name": "Diamond Dinh",
+    "website": "libdb.so",
+    "phone": "(XXX) XXX-XXXX",
+    "location": {
+      "address": "Fullerton, CA"
+    }
+  },
+  "education": [
+    {
+      "institution": "California State University, Fullerton",
+      "location": "Fullerton, CA",
+      "studyType": "Bachelors of Science",
+      "area": "Computer Science",
+      "startDate": "Aug 2020",
+      "endDate": "May 2024"
+    }
+  ],
+  "work": [
+    {
+      "highlights": [
+        "Developed a high-performance, parallel, and distributed pipeline using Go and Apache Beam to reconcile massive internal log databases with Certificate Transparency logs.",
+        "Improved the security of the certificate issuance pipeline by ensuring the authenticity of certificates issued by Google and preventing missing entries in Certificate Transparency logs.",
+        "Achieved exceptional efficiency, with the pipeline processing millions of log entries in under a minute and running at regular intervals for ongoing security assurance."
+      ],
+      "company": "Google",
+      "position": "Software Engineer Intern",
+      "location": "Sunnyvale, CA",
+      "startDate": "May 2023",
+      "endDate": "August 2023"
+    },
+    {
+      "highlights": [
+        "Rewrote and modernized a Kubernetes node monitoring framework in Go and integrated it with cloud bucket storage and an internal telemetry collector API for real-time tracking and performance analysis.",
+        "Led the redesign and development, collaborating with the original team to ensure the objectives were met.",
+        "Achieved more reliable system monitoring with better error handling, consistent status reporting to multiple outputs, and valuable telemetry data for internal dashboards, resulting in reduced on-call resolution time."
+      ],
+      "company": "Google",
+      "position": "STEP Intern",
+      "location": "Seattle, WA",
+      "startDate": "May 2022",
+      "endDate": "August 2022"
+    },
+    {
+      "highlights": [
+        "Restructured and refactored Go codebase for improved maintainability and adherence to style guides.",
+        "Designed and implemented an automatic CI/CD pipeline for deploying latest releases to AWS EC2 instances using Nix, enhancing development speed and enabling rapid testing by other teams."
+      ],
+      "company": "ShiHoYa Inc.",
+      "position": "Backend Developer",
+      "location": "Remote",
+      "startDate": "Feb 2020",
+      "endDate": "Sep 2019"
+    }
+  ],
+  "skills": [
+    {
+      "level": "",
+      "keywords": [
+        "Go, Bash, JavaScript, TypeScript, Nix, C++, SQL, HTML, CSS"
+      ],
+      "name": "Languages"
+    },
+    {
+      "keywords": [
+        "Linux, Git, Nix, Docker, Kubernetes, PostgreSQL, SQLite, CI/CD, OpenAPI, Apache Beam, Grafana, Telegraf, InfluxDB"
+      ],
+      "name": "Technologies"
+    }
+  ],
+  "projects": [
+    {
+      "description": "GUI chat apps made by reverse-engineering Discord with over 1100 stars on GitHub.",
+      "keywords": [
+        "C",
+        "Go",
+        "GTK4"
+      ],
+      "name": "gtkcord4",
+      "url": "libdb.so/gtkcord4"
+    },
+    {
+      "keywords": [
+        "Terraform",
+        "NixOS",
+        "GitHub Actions"
+      ],
+      "name": "acm-aws",
+      "description": "Infrastructure as code for ACM's AWS resources, with CI/CD pipelines and automatic deployment.",
+      "url": "libdb.so/acm-aws"
+    },
+    {
+      "keywords": [
+        "Go"
+      ],
+      "name": "arikawa",
+      "description": "Discord library with idiomatic Go and modular structure, having over 400 stars on GitHub.",
+      "url": "libdb.so/arikawa"
+    },
+    {
+      "keywords": [
+        "Python",
+        "FastAPI",
+        "OpenAPI",
+        "Flutter"
+      ],
+      "name": "Layover Party",
+      "url": "layover.party",
+      "description": "Mobile/web application to match people with long layover flights for partying, won LAHacks 2023 Travel category."
+    }
+  ],
+  "awards": [
+    {
+      "summary": "Won the Travel category with Layover Party: a mobile app to match people with long layover flights for partying and cheaper flights.",
+      "title": "LA Hacks Winner",
+      "date": "April 2023"
+    }
+  ],
+  "sections": [
+    "templates",
+    "profile",
+    "education",
+    "work",
+    "skills",
+    "projects",
+    "awards"
+  ]
+}
