@@ -34,9 +34,9 @@
     },
     {
       "highlights": [
-        "Rewrote and modernized a Kubernetes node monitoring framework in Go and integrated it with cloud bucket storage and an internal telemetry collector API for real-time tracking and performance analysis.",
+        "Rewrote and modernized a Kubernetes node monitoring tool in Go and integrated it with internal infrastructure and telemetry collector for real-time tracking and performance analysis.",
         "Led the redesign and development, collaborating with the original team to ensure the objectives were met.",
-        "Achieved more reliable system monitoring with better error handling, consistent status reporting to multiple outputs, and valuable telemetry data for internal dashboards, resulting in reduced on-call resolution time."
+        "Achieved more reliable system monitoring with better error handling, consistent status reporting to multiple outputs, and valuable telemetry for internal dashboards, reducing on-call resolution time."
       ],
       "company": "Google",
       "position": "STEP Intern",
@@ -89,7 +89,7 @@
         "GitHub Actions"
       ],
       "name": "acm-aws",
-      "description": "Infrastructure as code for ACM's AWS resources, with CI/CD pipelines and automatic deployment.",
+      "description": "Infrastructure for ACM at CSUF with CI/CD pipelines and automatic deployment.",
       "url": "libdb.so/acm-aws"
     },
     {
@@ -109,7 +109,7 @@
       ],
       "name": "Layover Party",
       "url": "layover.party",
-      "description": "Mobile/web application to match people with long layover flights for partying, won LAHacks 2023 Travel category."
+      "description": "Mobile app to match people with layover flights, won LAHacks 2023 Travel category."
     }
   ],
   "awards": [
