@@ -3,7 +3,7 @@
 let
 	gomplate = pkgs.gomplate.override {
 		# https://github.com/NixOS/nixpkgs/issues/264441
-		buildGoModule = pkgs.buildGo120Module;
+		# buildGoModule = pkgs.buildGo120Module;
 	};
 in
 
