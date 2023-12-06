@@ -30,7 +30,8 @@ generate() {
 		-f "$TEX_TEMPLATE" \
 		--left-delim '<' --right-delim '>'
 
-	texi2pdf -c -q "$WORK/$outputName.tex" -o "$output"
+	texi2pdf -c -q "$WORK/$outputName.tex" -o "$output" || \
+	texi2pdf -c "$WORK/$outputName.tex" -o "$output"
 }
 
 # isValidJSON input.json
