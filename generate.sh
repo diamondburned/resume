@@ -24,14 +24,22 @@ generate() {
 	local output="$2"
 	local outputName="${output%.*}"
 
+	# Enforce reproducible builds.
+	# See https://reproducible-builds.org/docs/source-date-epoch/.
+	export SOURCE_DATE_EPOCH=0
+
 	gomplate \
 		-c .="$input" \
-		-o "$WORK/$outputName.tex" \
+		-o "$outputName.tex" \
 		-f "$TEX_TEMPLATE" \
 		--left-delim '<' --right-delim '>'
 
-	texi2pdf -c -q "$WORK/$outputName.tex" -o "$output" || \
-	texi2pdf -c "$WORK/$outputName.tex" -o "$output"
+	tectonic -c minimal -Z shell-escape "$outputName.tex" \
+		|& grep -v '^warning: ' \
+		|  grep -v '^Invalid UTF-8 byte or sequence' \
+		|  grep -v '^Requested font' \
+		>&2
+	rm "$outputName.tex"
 }
 
 # isValidJSON input.json
@@ -40,8 +48,14 @@ isValidJSON() {
 }
 
 cleanup() {
-	rm -rf "$WORK"
+	# rm -rf "$WORK"
+	:
 }
 
-trap cleanup EXIT
-main "$@"
+if main "$@"; then
+	cleanup
+else
+	echo "Error: failed to generate resume" >&2
+	echo "Working directory: $WORK" >&2
+	exit 1
+fi

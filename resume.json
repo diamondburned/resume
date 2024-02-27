@@ -5,6 +5,8 @@
     "name": "Diamond Dinh",
     "website": "libdb.so",
     "phone": "(XXX) XXX-XXXX",
+    "github": "diamondburned",
+    "linkedin": "linkedin.com/in/xxx",
     "location": {
       "address": "Fullerton, CA"
     }
@@ -13,13 +15,24 @@
     {
       "institution": "California State University, Fullerton",
       "location": "Fullerton, CA",
-      "studyType": "Bachelors of Science",
+      "studyType": "Bachelor of Science",
       "area": "Computer Science",
       "startDate": "Aug 2020",
       "endDate": "May 2024"
     }
   ],
   "work": [
+    {
+      "company": "Association for Computing Machinery at CSUF",
+      "position": "Dev Team Lead",
+      "location": "Fullerton, CA",
+      "startDate": "August 2023",
+      "endDate": "Present",
+      "highlights": [
+        "Led numerous workshops (e.g., REST API) to help members learn new technologies and best practices.",
+        "Implemented a CI/CD pipeline for our servers, reducing deployment time and increasing reliability."
+      ]
+    },
     {
       "highlights": [
         "Developed a high-performance, parallel, and distributed pipeline using Go and Apache Beam to reconcile massive internal log databases with Certificate Transparency logs.",
@@ -35,7 +48,7 @@
     {
       "highlights": [
         "Rewrote and modernized a Kubernetes node monitoring tool in Go and integrated it with internal infrastructure and telemetry collector for real-time tracking and performance analysis.",
-        "Led the redesign and development, collaborating with the original team to ensure the objectives were met.",
+        "Led the redesign and development, collaborating with the original team to ensure objectives were met.",
         "Achieved more reliable system monitoring with better error handling, consistent status reporting to multiple outputs, and valuable telemetry for internal dashboards, reducing on-call resolution time."
       ],
       "company": "Google",
@@ -60,27 +73,33 @@
     {
       "level": "",
       "keywords": [
-        "Go, Bash, JavaScript, TypeScript, Nix, C++, SQL, HTML, CSS"
+        "Go, Bash, JavaScript, TypeScript, Nix, C, C++, Python, SQL, HTML, CSS"
       ],
       "name": "Languages"
     },
     {
       "keywords": [
-        "Linux, Git, Nix, Docker, Kubernetes, PostgreSQL, SQLite, CI/CD, OpenAPI, Apache Beam, Grafana, Telegraf, InfluxDB"
+        "PostgreSQL, SQLite, MariaDB, BadgerDB, Redis, InfluxDB"
       ],
-      "name": "Technologies"
+      "name": "Databases"
+    },
+    {
+      "keywords": [
+        "Terraform, AWS, GitHub Actions, GitLab CI, Prometheus, Grafana, Apache Beam, Telegraf"
+      ],
+      "name": "Cloud/Infra"
     }
   ],
   "projects": [
     {
-      "description": "GUI chat apps made by reverse-engineering Discord with over 1100 stars on GitHub.",
+      "description": "Native chat application made by reverse-engineering Discord with 800+ stars on GitHub.",
       "keywords": [
-        "C",
         "Go",
+        "C",
         "GTK4"
       ],
-      "name": "gtkcord4",
-      "url": "libdb.so/gtkcord4"
+      "name": "Dissent",
+      "url": "github.com/diamondburned/dissent"
     },
     {
       "keywords": [
@@ -89,16 +108,8 @@
         "GitHub Actions"
       ],
       "name": "acm-aws",
-      "description": "Infrastructure for ACM at CSUF with CI/CD pipelines and automatic deployment.",
-      "url": "libdb.so/acm-aws"
-    },
-    {
-      "keywords": [
-        "Go"
-      ],
-      "name": "arikawa",
-      "description": "Discord library with idiomatic Go and modular structure, having over 400 stars on GitHub.",
-      "url": "libdb.so/arikawa"
+      "description": "Infrastructure-as-code for ACM at CSUF with CI/CD pipelines for AWS and bare-metal.",
+      "url": "github.com/diamondburned/acm-aws"
     },
     {
       "keywords": [
@@ -109,7 +120,7 @@
       ],
       "name": "Layover Party",
       "url": "layover.party",
-      "description": "Mobile app to match people with layover flights, won LAHacks 2023 Travel category."
+      "description": "Full-stack web/mobile application to match people with long layover flights, won LAHacks 2023."
     }
   ],
   "awards": [

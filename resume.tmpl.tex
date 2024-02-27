@@ -7,6 +7,7 @@
 
 \documentclass[letterpaper,12pt]{article}
 
+\usepackage{fontawesome}
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
@@ -19,14 +20,55 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \usepackage{soul}
-\input{glyphtounicode}
+\usepackage{cmap}
+\usepackage{ulem}
+\usepackage{contour}
 
 
 %----------FONT OPTIONS----------
 % sans-serif
-\usepackage[default]{raleway}
+% \usepackage[sfdefault]{roboto}
 % \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{lato}
+% \usepackage[default]{raleway}
+% \usepackage[default]{opensans}
+
+\usepackage[T1]{fontenc}
+\usepackage[default,oldstyle,proportional]{lato}
+\usepackage[]{josefin}
+
+% LaTeX has awful underlining, let's fix that.
+% See https://alexwlchan.net/2017/latex-underlines/.
+\contourlength{0.8pt}
+\renewcommand{\ULdepth}{1.8pt}
+\renewcommand{\ul}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+% TODO: figure this stuff out...
+% \setmainfont[ExternalLocation=<getenv "FONTS_PATH">]{Lexend-Light.ttf}[
+% \setmainfont[ExternalLocation=fonts/]{Lexend-Light.ttf}[
+%   Ligatures=TeX,
+%   BoldFont=Lexend-Regular.ttf,
+%   AutoFakeSlant=0.2,
+% ]
+% \setmainfont[
+%   Path=<getenv "FONTS_PATH">,
+%   Ligatures=TeX,
+%   BoldFont=Lexend-Regular.ttf,
+%   AutoFakeSlant=0.2,
+% ]{Lexend-Light.ttf}
+% \setmainfont[
+%   Path=fonts/,
+%   Extension=.ttf,
+%   UprightFont=LexendDeca-Light,
+%   BoldFont=LexendDeca-Regular,
+%   AutoFakeSlant=0.2,
+% ]{LexendDeca}
+% \setmainfont[Path=fonts/]{LexendDeca-Light.ttf}[
+%   AutoFakeSlant=0.2,
+%   AutoFakeBold=0.2,
+% ]
 
 % serif
 % \usepackage{CormorantGaramond}
@@ -54,51 +96,39 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
+  \vspace{-8pt}\scshape\raggedright\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
 
 %-------------------------
 % Custom commands
 \newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
+  \item\small{#1}
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{#3} & \textit{ #4} \\
-    \end{tabular*}\vspace{-7pt}
+  \item
+  \begin{tabular*}{0.965\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{ #4} \\
+  \end{tabular*}
 }
 
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{#1} & \textit{ #2} \\
-    \end{tabular*}\vspace{-7pt}
+\renewcommand\labelitemii{$\vcenter{\hbox{\small$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt]
+}
+\newcommand{\resumeSubHeadingListEnd}{
+  \end{itemize}
 }
 
-\newcommand{\resumeProjectHeading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} | #2 & \textit{\small#3} \\
-    \end{tabular*}
+\newcommand{\resumeItemListStart}{
+  \vspace{-6pt}\begin{itemize}[leftmargin=0.25in, itemsep=2pt, rightmargin=0.15in]
+}
+\newcommand{\resumeItemListEnd}{
+  \end{itemize}
 }
 
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,64 +136,82 @@
 \begin{document}
 
 %----------HEADING----------
+\renewcommand{\faHeader}[1]{\raisebox{-0.05\height}{\faicon{#1}}}
+
 \begin{center}
-	<with .basics>
-    \textbf{\Huge <.name>} \\ \vspace{1pt}
-    \href{mailto:<.email>}{\ul{<.email>}} $|$ 
-    \small <.phone> $|$ 
-    \href{<.website>}{\ul{<.website>}}
-	<end>
+  <with .basics>
+  {\josefinsemibold\Huge{<.name>}} \\
+
+  \vspace{4pt}
+  \href{mailto:<.email>}{\small{\faHeader{envelope-o} \ul{<.email>}}} $|$
+  \href{https://github.com/<.github>}{\small{\faHeader{github} \ul{<.github>}}} $|$
+  \href{https://<.website>}{\small{\faHeader{link} \ul{<.website>}}} $|$
+  \href{https://linkedin.com/in/<.linkedin>}{\small{\faHeader{linkedin-square} \ul{<.name>}}}
+  <end>
 \end{center}
 
 
 %-----------EDUCATION-----------
-\section{Education}
+\section{EDUCATION}
   \resumeSubHeadingListStart
     <range .education>
     \resumeSubheading
-      {<.studyType> in <.area>}{Graduating <.endDate>}
-      {<.institution>}{<.location>}
-	<end>
+      {<.institution>}{\small{<.location>}}
+      {<.studyType> in <.area>}{\small{<.endDate>}}
+    <end>
   \resumeSubHeadingListEnd
 
 
 
 %-----------EXPERIENCE-----------
-\section{Experience}
+\section{WORK EXPERIENCE}
+  \vspace{2pt}
   \resumeSubHeadingListStart
     <range .work>
+    \vspace{-2pt} % compensate
     \resumeSubheading
-      {<.company>}{}
-	  {<.position>}{<.startDate> - <.endDate>}
-      \resumeItemListStart
-	    <range .highlights>
-        \resumeItem{<.>}
-        <end>
-      \resumeItemListEnd
-	<end>
+      {<.company>}{\small{<.location>}}
+      {<.position>}{\small{<.startDate> - <.endDate>}}
+    \resumeItemListStart
+      <range .highlights>
+      \resumeItem{<.>}
+      <end>
+    \resumeItemListEnd
+    <end>
   \resumeSubHeadingListEnd
 
 
 %-----------PROJECTS-----------
-\section{Projects}
+\section{PROJECTS}
   \resumeSubHeadingListStart
     <range .projects>
-    \resumeProjectHeading
-        {<.name>}{<conv.Join .keywords ", ">}{<.url>}
-        \resumeItem{<.description>}
+    \item{
+      \begin{tabular*}{0.965\textwidth}[t]{l @{\extracolsep{\fill}} r}
+        {\textbf{<.name>} | \small{<conv.Join .keywords ", ">}} &
+        {\href{https://<.url>}{\small{
+          <- if (strings.HasPrefix "github.com/" .url) ->
+            \ul{<strings.TrimPrefix "github.com/" .url>} \raisebox{-0.05\height}{\faGithub}
+          <- else ->
+            \ul{<.url>} \raisebox{-0.05\height}{\faLink}
+          <- end ->
+        }}}
+      \end{tabular*} \\
+      \small{<.description>}
+    }
     <end>
   \resumeSubHeadingListEnd
 
 %
 %-----------PROGRAMMING SKILLS-----------
-\section{Technical Skills}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-	  <range .skills>
-      \textbf{<.name>}{ <conv.Join .keywords "">} \\
-	  <end>
-    }}
- \end{itemize}
+\section{SKILLS}
+  \resumeSubHeadingListStart
+    \item
+    \begin{tabular*}{0.965\textwidth}[t]{l@{ }l}
+      <range .skills>
+      \small{\textbf{<.name>}} & \small{<conv.Join .keywords "">} \\
+      <end>
+    \end{tabular*}
+  \resumeSubHeadingListEnd
 
 
 %-------------------------------------------
