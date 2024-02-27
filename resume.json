@@ -109,7 +109,7 @@
       ],
       "name": "acm-aws",
       "description": "Infrastructure-as-code for ACM at CSUF with CI/CD pipelines for AWS and bare-metal.",
-      "url": "github.com/diamondburned/acm-aws"
+      "url": "github.com/acmcsufoss/acm-aws"
     },
     {
       "keywords": [
