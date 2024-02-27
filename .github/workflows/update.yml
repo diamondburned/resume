@@ -14,6 +14,8 @@ jobs:
     needs: build
     environment: Main branch
     steps:
+      - uses: actions/checkout@v4
+
       - uses: actions/download-artifact@v4
         with:
           name: resume
