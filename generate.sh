@@ -61,13 +61,9 @@ generate() {
 		return 1
 	fi
 
-	tectonic -c minimal -Z shell-escape "$outputName.tex" \
-		|& grep -v '^warning: ' \
-		|  grep -v '^Invalid UTF-8 byte or sequence' \
-		|  grep -v '^Requested font' \
-		>&2
-
+	tectonic -c minimal "$outputName.tex"
 	status=$?
+
 	rm "$outputName.tex"
 	return $status
 }
