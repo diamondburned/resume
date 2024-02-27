@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+environment: Main branch
+
 jobs:
   build:
     uses: ./.github/workflows/build.yml
