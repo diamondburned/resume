@@ -18,6 +18,8 @@ jobs:
           name: resume
           path: resume.pdf
 
+      - run: mv resume/resume.pdf resume.pdf
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update resume

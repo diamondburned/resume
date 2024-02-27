@@ -16,7 +16,13 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/magic-nix-cache-action@main
 
-      - run: nix develop -c './generate.sh'
+      - name: generate.sh
+        run: |
+          if [[ $RUNNER_DEBUG ]]; then
+            nix develop -c 'bash -x ./generate.sh'
+          else
+            nix develop -c './generate.sh'
+          fi
 
       - uses: actions/upload-artifact@v4
         with:
