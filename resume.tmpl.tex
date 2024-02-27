@@ -136,10 +136,8 @@
   \end{itemize}
 }
 
-\renewcommand{\faHeader}[1]{%
-  \BeginAccSupp{method=escape,ActualText=}%
-    \raisebox{-0.05\height}{\faicon{#1}}%
-  \EndAccSupp{}%
+\renewcommand{\faHeader}[1]{
+  \raisebox{-0.05\height}{\faicon{#1}}
 }
 
 %-------------------------------------------
@@ -153,10 +151,10 @@
   {\josefinsemibold\Huge{<.name>}} \\
 
   \vspace{4pt}
-  \href{mailto:<.email>}{\small{\faHeader{envelope-o} \ul{<.email>}}} $|$
-  \href{https://github.com/<.github>}{\small{\faHeader{github} \ul{<.github>}}} $|$
-  \href{https://<.website>}{\small{\faHeader{link} \ul{https://<.website>}}} $|$
-  \href{https://linkedin.com/in/<.linkedin>}{\small{\faHeader{linkedin-square} \ul{<.name>}}}
+  \small{\faHeader{envelope-o} \href{mailto:<.email>}{\ul{<.email>}}} $|$
+  \small{\faHeader{github} \href{https://github.com/<.github>}{\ul{<.github>}}} $|$
+  \small{\faHeader{link} \href{https://<.website>}{\ul{https://<.website>}}} $|$
+  \small{\faHeader{linkedin-square} \href{https://linkedin.com/in/<.linkedin>}{\ul{<.name>}}}
   <end>
 \end{center}
 
@@ -197,12 +195,12 @@
     <range .projects>
     \item{
       \begin{tabular*}{0.965\textwidth}[t]{l @{\extracolsep{\fill}} r}
-        {\textbf{<.name>} | \small{<conv.Join .keywords ", ">}} &
+        {\textbf{<.name>} \ | \ \textit{\small{<conv.Join .keywords ", ">}}} &
         {\href{https://<.url>}{\small{
           <- if (strings.HasPrefix "github.com/" .url) ->
-            \ul{<strings.TrimPrefix "github.com/" .url>} \raisebox{-0.05\height}{\faGithub}
+            \ul{<strings.TrimPrefix "github.com/" .url>} \ \raisebox{-0.05\height}{\faGithub}
           <- else ->
-            \ul{<.url>} \raisebox{-0.05\height}{\faLink}
+            \ul{<.url>} \ \raisebox{-0.05\height}{\faLink}
           <- end ->
         }}}
       \end{tabular*} \\
@@ -216,9 +214,9 @@
 \section{SKILLS}
   \resumeSubHeadingListStart
     \item
-    \begin{tabular*}{0.965\textwidth}[t]{l@{ }l}
+    \begin{tabular*}{0.965\textwidth}[t]{l@{ \ }l}
       <range .skills>
-      \small{\textbf{<.name>}} & \small{<conv.Join .keywords "">} \\
+      \small{\textbf{<.name>}:} & \small{<conv.Join .keywords "">} \\
       <end>
     \end{tabular*}
   \resumeSubHeadingListEnd
