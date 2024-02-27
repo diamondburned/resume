@@ -3,7 +3,7 @@ name: Build Resume
 on:
   push:
     branches:
-      - !main # handled by update.yml
+      - '!main' # handled by update.yml
   pull_request:
   workflow_call:
 
