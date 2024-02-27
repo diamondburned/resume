@@ -23,6 +23,7 @@
 \usepackage{cmap}
 \usepackage{ulem}
 \usepackage{contour}
+\usepackage{accsupp}
 
 
 %----------FONT OPTIONS----------
@@ -33,7 +34,7 @@
 % \usepackage[default]{opensans}
 
 \usepackage[T1]{fontenc}
-\usepackage[default,oldstyle,proportional]{lato}
+\usepackage[default,proportional]{lato}
 \usepackage[]{josefin}
 
 % LaTeX has awful underlining, let's fix that.
@@ -41,9 +42,15 @@
 \contourlength{0.8pt}
 \renewcommand{\ULdepth}{1.8pt}
 \renewcommand{\ul}[1]{%
-  \uline{\phantom{#1}}%
-  \llap{\contour{white}{#1}}%
+  \dashuline{#1}%
 }
+
+% This does not work on resume scanners :(
+% \renewcommand{\ul}[1]{%
+%   \BeginAccSupp{method=pdfstringdef,unicode,ActualText={#1}}%
+%     \uline{\contour{white}{#1}}%
+%   \EndAccSupp{}%
+% }
 
 % TODO: figure this stuff out...
 % \setmainfont[ExternalLocation=<getenv "FONTS_PATH">]{Lexend-Light.ttf}[
@@ -129,6 +136,11 @@
   \end{itemize}
 }
 
+\renewcommand{\faHeader}[1]{%
+  \BeginAccSupp{method=escape,ActualText=}%
+    \raisebox{-0.05\height}{\faicon{#1}}%
+  \EndAccSupp{}%
+}
 
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,8 +148,6 @@
 \begin{document}
 
 %----------HEADING----------
-\renewcommand{\faHeader}[1]{\raisebox{-0.05\height}{\faicon{#1}}}
-
 \begin{center}
   <with .basics>
   {\josefinsemibold\Huge{<.name>}} \\
@@ -145,7 +155,7 @@
   \vspace{4pt}
   \href{mailto:<.email>}{\small{\faHeader{envelope-o} \ul{<.email>}}} $|$
   \href{https://github.com/<.github>}{\small{\faHeader{github} \ul{<.github>}}} $|$
-  \href{https://<.website>}{\small{\faHeader{link} \ul{<.website>}}} $|$
+  \href{https://<.website>}{\small{\faHeader{link} \ul{https://<.website>}}} $|$
   \href{https://linkedin.com/in/<.linkedin>}{\small{\faHeader{linkedin-square} \ul{<.name>}}}
   <end>
 \end{center}
