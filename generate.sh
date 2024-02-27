@@ -7,10 +7,9 @@ TEX_TEMPLATE="resume.tmpl.tex"
 main() {
 	generate resume.json resume.pdf &
 
-	if isValidJSON resume.secret.json; then
-		jq -s '.[0] * .[1]' \
-			resume.json \
-			resume.secret.json > "$WORK/resume.secret.json"
+	if jq -s '.[0] * .[1]' \
+		resume.json \
+		resume.secret.json > "$WORK/resume.secret.json"; then
 
 		generate "$WORK/resume.secret.json" resume.secret.pdf &
 	fi
@@ -42,18 +41,8 @@ generate() {
 	rm "$outputName.tex"
 }
 
-# isValidJSON input.json
-isValidJSON() {
-	jq . "$1" &> /dev/null
-}
-
-cleanup() {
-	# rm -rf "$WORK"
-	:
-}
-
 if main "$@"; then
-	cleanup
+	rm -r "$WORK"
 else
 	echo "Error: failed to generate resume" >&2
 	echo "Working directory: $WORK" >&2
