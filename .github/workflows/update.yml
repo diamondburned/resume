@@ -20,6 +20,7 @@ jobs:
         with:
           name: resume
           path: resume.pdf
+          merge-multiple: true
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
