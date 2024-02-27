@@ -1,4 +1,4 @@
-name: Update Resume
+name: Build and Update Resume
 
 on:
   push:
@@ -6,21 +6,22 @@ on:
       - main
 
 jobs:
-  build:
-    uses: ./.github/workflows/build.yml
-
   update:
     runs-on: ubuntu-latest
-    needs: build
     environment: Main branch
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
-        with:
-          name: resume
-          path: resume.pdf
-          merge-multiple: true
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: generate.sh
+        run: |
+          if [[ $RUNNER_DEBUG ]]; then
+            nix develop -c -- bash -x ./generate.sh
+          else
+            nix develop -c ./generate.sh
+          fi
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
