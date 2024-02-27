@@ -8,15 +8,19 @@
 		{ self, nixpkgs, flake-utils }:
 
 		flake-utils.lib.eachDefaultSystem (system:
-			with nixpkgs.legacyPackages.${system};
+			let
+				pkgs = nixpkgs.legacyPackages.${system};
+				deps = with pkgs; [
+					gomplate
+					tectonic
+				];
+			in
 			{
-				devShell = mkShell {
-					packages = [
-						git-crypt
-						gomplate
-						tectonic
-						texliveMinimal
-					];
+				devShell = pkgs.mkShell {
+					packages = deps ++ (with pkgs; [
+						git-crypt      # for secrets
+						texliveMinimal # for editor linting
+					]);
 				};
 			}
 		);
