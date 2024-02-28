@@ -92,7 +92,7 @@
   ],
   "projects": [
     {
-      "description": "Native chat application made by reverse-engineering Discord with 800+ stars on GitHub.",
+      "description": "Native Discord chat client app featured by GNOME with 800+ stars on GitHub.",
       "keywords": [
         "Go",
         "C",
