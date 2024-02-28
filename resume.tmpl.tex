@@ -164,8 +164,6 @@
   \resumeSubHeadingListEnd
 
 
-
-%-----------EXPERIENCE-----------
 \section{WORK EXPERIENCE}
   \vspace{2pt}
   \resumeSubHeadingListStart
@@ -183,13 +181,25 @@
   \resumeSubHeadingListEnd
 
 
-%-----------PROJECTS-----------
+\section{LEADERSHIP}
+  \resumeSubHeadingListStart
+    \item
+      \begin{tabular*}{0.965\textwidth}[t]{l @{ \ } l @{\extracolsep{\fill}} r}
+        <range .leadership>
+        \vspace{2pt}
+        \textbf{<.company>} & {| \ \textit{<.position>}} &
+        \small{<.startDate><if (has . "endDate")> - <.endDate><end>} \\
+        <end>
+      \end{tabular*}
+  \resumeSubHeadingListEnd
+
+
 \section{PROJECTS}
   \resumeSubHeadingListStart
     <range .projects>
-    \item{
+    \item
       \begin{tabular*}{0.965\textwidth}[t]{l @{\extracolsep{\fill}} r}
-        {\textbf{<.name>} \ | \ \textit{\small{<conv.Join .keywords ", ">}}} &
+        {\textbf{<.name>} \ | \ \textit{<conv.Join .keywords ", ">}} &
         {\href{https://<.url>}{\small{
           <- if (strings.HasPrefix "github.com/" .url) ->
             \ul{<strings.TrimPrefix "github.com/" .url>} \ \raisebox{-0.05\height}{\faGithub}
@@ -199,21 +209,20 @@
         }}}
       \end{tabular*} \\
       \small{<.description>}
-    }
     <end>
   \resumeSubHeadingListEnd
 
-%
-%-----------PROGRAMMING SKILLS-----------
+
 \section{SKILLS}
   \resumeSubHeadingListStart
     \item
     \begin{tabular*}{0.965\textwidth}[t]{l@{ \ }l}
       <range .skills>
+      \vspace{2pt}
       \small{\textbf{<.name>}:} & \small{<conv.Join .keywords "">} \\
       <end>
     \end{tabular*}
   \resumeSubHeadingListEnd
 
-%-------------------------------------------
+
 \end{document}

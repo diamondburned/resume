@@ -23,17 +23,6 @@
   ],
   "work": [
     {
-      "company": "Association for Computing Machinery at CSUF",
-      "position": "Dev Team Lead",
-      "location": "Fullerton, CA",
-      "startDate": "August 2023",
-      "endDate": "Present",
-      "highlights": [
-        "Led numerous workshops (e.g., REST API) to help members learn new technologies and best practices.",
-        "Implemented a CI/CD pipeline for our servers, reducing deployment time and increasing reliability."
-      ]
-    },
-    {
       "highlights": [
         "Developed a high-performance, parallel, and distributed pipeline using Go and Apache Beam to reconcile massive internal log databases with Certificate Transparency logs.",
         "Improved the security of the certificate issuance pipeline by ensuring the authenticity of certificates issued by Google and preventing missing entries in Certificate Transparency logs.",
@@ -123,6 +112,19 @@
       "description": "Full-stack web/mobile application to match people with long layover flights, won LAHacks 2023."
     }
   ],
+  "leadership": [
+    {
+      "company": "Association for Computing Machinery at CSUF",
+      "position": "Dev Team Lead",
+      "startDate": "August 2023",
+      "endDate": "Present"
+    },
+    {
+      "company": "Intercollegiate Programming Competition (ICPC)",
+      "position": "Team Lead",
+      "startDate": "October 2023",
+    }
+  ],
   "awards": [
     {
       "summary": "Won the Travel category with Layover Party: a mobile app to match people with long layover flights for partying and cheaper flights.",
@@ -135,8 +137,9 @@
     "profile",
     "education",
     "work",
-    "skills",
+    "leadership",
     "projects",
+    "skills",
     "awards"
   ]
 }
