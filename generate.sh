@@ -6,6 +6,11 @@ PIDS=()
 TEX_TEMPLATE="resume.tmpl.tex"
 
 main() {
+	if ! jq . resume.json >/dev/null 2>&1; then
+		echo "Error: resume.json is not a valid JSON file" >&2
+		return 1
+	fi
+
 	generate_async resume.json resume.pdf
 
 	if jq -s '.[0] * .[1]' \
