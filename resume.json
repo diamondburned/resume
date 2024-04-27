@@ -62,7 +62,7 @@
     {
       "level": "",
       "keywords": [
-        "Go, Bash, JavaScript, TypeScript, Nix, C, C++, Python, Node.JS, Deno, SQL, HTML, CSS, Svelte"
+        "Go, Bash, JavaScript, TypeScript, Nix, C, C++, Python, Deno, SQL, HTML, CSS, Svelte, Protobuf"
       ],
       "name": "Languages"
     },
