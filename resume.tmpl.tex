@@ -200,14 +200,15 @@
     \item
       \begin{tabular*}{0.965\textwidth}[t]{l @{\extracolsep{\fill}} r}
         {\textbf{<.name>} \ | \ \textit{<conv.Join .keywords ", ">}} &
-        {\href{https://<.url>}{\small{
-          <- if (strings.HasPrefix "github.com/" .url) ->
-            \ul{<strings.TrimPrefix "github.com/" .url>} \ \raisebox{-0.05\height}{\faGithub}
+        {\href{https://<.website>}{\small{
+          <- if (strings.HasPrefix "github.com/" .website) ->
+            \ul{<strings.TrimPrefix "github.com/" .website>} \ \raisebox{-0.05\height}{\faGithub}
           <- else ->
-            \ul{<.url>} \ \raisebox{-0.05\height}{\faLink}
+            \ul{<.website>} \ \raisebox{-0.05\height}{\faLink}
           <- end ->
         }}}
       \end{tabular*} \\
+      \vspace{2pt}
       \small{<.description>}
     <end>
   \resumeSubHeadingListEnd

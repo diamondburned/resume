@@ -8,7 +8,9 @@
     "github": "diamondburned",
     "linkedin": "linkedin.com/in/xxx",
     "location": {
-      "address": "Fullerton, CA"
+      "city": "Fullerton",
+      "region": "CA",
+      "countryCode": "US"
     }
   },
   "education": [
@@ -60,7 +62,6 @@
   ],
   "skills": [
     {
-      "level": "",
       "keywords": [
         "Go, Bash, JavaScript, TypeScript, Nix, C, C++, Python, Deno, SQL, HTML, CSS, Svelte, Protobuf"
       ],
@@ -88,17 +89,20 @@
         "GTK4"
       ],
       "name": "Dissent",
-      "url": "github.com/diamondburned/dissent"
+      "website": "github.com/diamondburned/dissent"
     },
     {
       "keywords": [
         "Terraform",
         "NixOS",
-        "GitHub Actions"
+        "Libvirt",
+        "QEMU",
+        "GitHub Actions",
+        "CI/CD"
       ],
       "name": "acm-aws",
       "description": "Infrastructure-as-code for ACM at CSUF with CI/CD pipelines for AWS and bare-metal.",
-      "url": "github.com/acmcsufoss/acm-aws"
+      "website": "github.com/acmcsufoss/acm-aws"
     },
     {
       "keywords": [
@@ -108,7 +112,7 @@
         "Flutter"
       ],
       "name": "Layover Party",
-      "url": "layover.party",
+      "website": "layover.party",
       "description": "Full-stack web/mobile application to match people with long layover flights, won LAHacks 2023."
     }
   ],
@@ -128,8 +132,19 @@
   "awards": [
     {
       "summary": "Won the Travel category with Layover Party: a mobile app to match people with long layover flights for partying and cheaper flights.",
-      "title": "LA Hacks Winner",
+      "title": "Travel Category Winner",
+      "awarder": "LA Hacks",
       "date": "April 2023"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "Vietnamese",
+      "fluency": "Native"
     }
   ],
   "sections": [
