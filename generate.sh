@@ -114,7 +114,7 @@ log::pipe() {
 }
 
 log::flush() {
-	echo "$logBuffer" >&2
+	echo -n "$logBuffer" >&2
 }
 
 if main "$@"; then

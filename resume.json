@@ -63,26 +63,53 @@
   "skills": [
     {
       "keywords": [
-        "Go, Bash, JavaScript, TypeScript, Nix, C, C++, Python, Deno, SQL, HTML, CSS, Svelte, Protobuf"
+        "Go",
+        "Bash",
+        "JavaScript",
+        "TypeScript",
+        "Nix",
+        "C",
+        "C++",
+        "Python",
+        "Deno",
+        "SQL",
+        "HTML",
+        "CSS",
+        "Svelte",
+        "Protobuf"
       ],
       "name": "Languages"
     },
     {
       "keywords": [
-        "PostgreSQL, SQLite, MariaDB, BadgerDB, Redis, InfluxDB"
+        "PostgreSQL",
+        "SQLite",
+        "MariaDB",
+        "BadgerDB",
+        "Redis",
+        "InfluxDB",
+        "Google Spanner"
       ],
       "name": "Databases"
     },
     {
       "keywords": [
-        "Terraform, AWS, GitHub Actions, GitLab CI, Prometheus, Grafana, Apache Beam, Telegraf"
+        "AWS",
+        "Cloud-init",
+        "GitHub Actions",
+        "GitLab CI",
+        "Grafana",
+        "NixOS",
+        "Prometheus",
+        "Telegraf",
+        "Terraform"
       ],
       "name": "Cloud/Infra"
     }
   ],
   "projects": [
     {
-      "description": "Native Discord chat client app featured by GNOME with 1,000+ stars on GitHub.",
+      "description": "A third-party Discord app designed for a smooth experience on desktops, having 1.2k stars on GitHub.",
       "keywords": [
         "Go",
         "C",
@@ -94,15 +121,14 @@
     {
       "keywords": [
         "Terraform",
+        "Linux",
         "NixOS",
         "Libvirt",
-        "QEMU",
-        "GitHub Actions",
         "CI/CD"
       ],
-      "name": "acm-aws",
-      "description": "Infrastructure-as-code for ACM at CSUF with CI/CD pipelines for AWS and bare-metal.",
-      "website": "github.com/acmcsufoss/acm-aws"
+      "name": "ACM at CSUF Servers",
+      "description": "Infrastructure-as-code for ACM at CSUF with automatic deployment that vastly improved development speed.",
+      "website": "github.com/acmcsufoss/acm-server"
     },
     {
       "keywords": [
@@ -121,7 +147,7 @@
       "company": "Association for Computing Machinery at CSUF",
       "position": "Dev Team Lead",
       "startDate": "August 2023",
-      "endDate": "Present"
+      "endDate": "June 2024"
     },
     {
       "company": "Intercollegiate Programming Competition (ICPC)",

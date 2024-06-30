@@ -159,7 +159,7 @@
     <range .education>
     \resumeSubheading
       {<.institution>}{\small{<.location>}}
-      {<.studyType> in <.area>}{\small{<.endDate>}}
+      {<.studyType> in <.area>}{\small{<.startDate>} - \small{<.endDate>}}
     <end>
   \resumeSubHeadingListEnd
 
@@ -167,30 +167,23 @@
 \section{WORK EXPERIENCE}
   \vspace{2pt}
   \resumeSubHeadingListStart
-    <range .work>
-    \vspace{-2pt} % compensate
-    \resumeSubheading
-      {<.company>}{\small{<.location>}}
-      {<.position>}{\small{<.startDate> - <.endDate>}}
+    <range $i, $item := .work>
+    </* $same := and (gt $i 0) (eq (index $.work (sub $i 1)).company .company) */>
+    <$same := false>
+    \vspace{<if $same> -6pt <else> -2pt <end>} % compensate
+    \item
+      \begin{tabular*}{0.965\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        <if not $same>
+        \textbf{<.company>} & \small{<.location>} \\
+        <end>
+        \textit{\small{<.position>}} & \textit{\small{<.startDate> - <.endDate>}} \\
+      \end{tabular*}
     \resumeItemListStart
       <range .highlights>
       \resumeItem{<.>}
       <end>
     \resumeItemListEnd
     <end>
-  \resumeSubHeadingListEnd
-
-
-\section{LEADERSHIP}
-  \resumeSubHeadingListStart
-    \item
-      \begin{tabular*}{0.965\textwidth}[t]{l @{ \ } l @{\extracolsep{\fill}} r}
-        <range .leadership>
-        \vspace{2pt}
-        \textbf{<.company>} & {| \ \textit{<.position>}} &
-        \small{<.startDate><if (has . "endDate")> - <.endDate><end>} \\
-        <end>
-      \end{tabular*}
   \resumeSubHeadingListEnd
 
 
@@ -214,15 +207,29 @@
   \resumeSubHeadingListEnd
 
 
-\section{SKILLS}
+\section{LEADERSHIP}
   \resumeSubHeadingListStart
     \item
-    \begin{tabular*}{0.965\textwidth}[t]{l@{ \ }l}
-      <range .skills>
-      \vspace{2pt}
-      \small{\textbf{<.name>}:} & \small{<conv.Join .keywords "">} \\
-      <end>
-    \end{tabular*}
+      \begin{tabular*}{0.965\textwidth}[t]{l @{ \ } l @{\extracolsep{\fill}} r}
+        <range .leadership>
+        \vspace{2pt}
+        \textbf{<.company>} & {| \ \textit{<.position>}} &
+        \small{<.startDate><if (has . "endDate")> - <.endDate><end>} \\
+        <end>
+      \end{tabular*}
+  \resumeSubHeadingListEnd
+
+
+\section{SKILLS}
+  \resumeSubHeadingListStart
+    \item{
+      \renewcommand{\arraystretch}{1.2}
+      \begin{tabular*}{0.965\textwidth}[t]{p{0.11\linewidth}@{ \ }p{0.89\linewidth}}
+        <range .skills>
+        \small{\textbf{<.name>}:} & \small{<conv.Join .keywords ", ">} \\
+        <end>
+      \end{tabular*}
+    }
   \resumeSubHeadingListEnd
 
 
