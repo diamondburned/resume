@@ -3,15 +3,37 @@ set -euo pipefail
 
 WORK=$(mktemp -d)
 PIDS=()
+OUTPUT="resume.pdf"
+VERBOSE=0
 TEX_TEMPLATE="resume.tmpl.tex"
 
 main() {
+	while (( $# > 0 )); do
+		case "${1:-''}" in
+		"-v"|"--verbose")
+			VERBOSE=1
+			shift
+			;;
+		"-o"|"--output")
+			OUTPUT="$2"
+			shift 2
+			;;
+		*)
+			log "Error: unknown option $1" >&2
+			return 1
+		esac
+	done
+
+	outputBase="${OUTPUT%.*}"
+	outputFile="${outputBase}.pdf"
+	outputSecretFile="${outputBase}.secret.pdf"
+
 	if ! jq . resume.json >/dev/null 2>&1; then
-		echo "Error: resume.json is not a valid JSON file" >&2
+		log "Error: resume.json is not a valid JSON file" >&2
 		return 1
 	fi
 
-	generate_async resume.json resume.pdf
+	generate_async resume.json "$outputFile"
 
 	if jq -s '.[0] * .[1]' \
 		resume.json \
@@ -19,7 +41,7 @@ main() {
 		1> "$WORK/resume.secret.json" \
 		2>/dev/null
 	then
-		generate_async "$WORK/resume.secret.json" resume.secret.pdf
+		generate_async "$WORK/resume.secret.json" "$outputSecretFile"
 	fi
 
 	generate_finish
@@ -66,17 +88,40 @@ generate() {
 		return 1
 	fi
 
-	tectonic -c minimal "$outputName.tex"
+	tectonic -c minimal "$outputName.tex" |& log::pipe
 	status=$?
 
 	rm "$outputName.tex"
 	return $status
 }
 
+logBuffer=""
+
+log() {
+	if [[ $VERBOSE == 1 ]]; then
+		echo "$@" >&2
+	else
+		logBuffer+="$@"$'\n'
+	fi
+}
+
+log::pipe() {
+	if [[ $VERBOSE == 1 ]]; then
+		cat >&2 # redirect stdin to stderr
+	else
+		logBuffer+=$(cat) # slurp stdin
+	fi
+}
+
+log::flush() {
+	echo "$logBuffer" >&2
+}
+
 if main "$@"; then
 	rm -r "$WORK"
 else
-	echo "Error: failed to generate resume" >&2
-	echo "Working directory: $WORK" >&2
+	log "Error: failed to generate resume"
+	log "Working directory: $WORK"
+	log::flush
 	exit 1
 fi
